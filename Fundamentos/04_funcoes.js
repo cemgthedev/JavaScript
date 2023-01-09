@@ -45,3 +45,25 @@ Point.prototype.calcula = function() {
 
 // observe que mesmo ja tendo criado o objeto point ele tambem passara a ter um metodo calcula
 point.calcula() // retorna 1,414...
+
+/*
+* Função callback
+*/
+function print(funcaoCallback) {
+    console.log('Carregando...');
+    console.log(funcaoCallback);
+}
+
+print(function () {
+    return 'Olá mundo!'
+});
+
+
+
+
+
+
+
+
+
+
