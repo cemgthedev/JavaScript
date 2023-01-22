@@ -1,0 +1,14 @@
+{
+  "name": "catboy-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "Carlos Eduardo de Moura Gomes",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.2.3",
+    "express": "^4.18.2"
+  }
+}
