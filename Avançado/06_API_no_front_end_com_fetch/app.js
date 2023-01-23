@@ -10,18 +10,18 @@ function getUsers() {
 
 // getUsers();
 
-function getUser(userName) {
-    fetch(`${url}/${userName}`)
+function getUser(id) {
+    fetch(`${url}/${id}`)
         .then(response => response.json())
         .then(data => {
-            userAvatar.src = data.avatar_url;
-            userRepos.textContent = JSON.stringify(data.repos_url);
-            console.log(btnSearch);
+            userAvatar.src = data.avatar;
+            userName = data.name;
+            userCity = data.city;
         })
         .catch(error => console.error(error));
 }
 
-//getUser('cemgthedev');
+//getUser(1);
 
 const newUser = {
         name: "Olivia Zars",
