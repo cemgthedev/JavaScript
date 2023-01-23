@@ -24,9 +24,10 @@ function getUser(userName) {
 //getUser('cemgthedev');
 
 const newUser = {
-    avatar_url: "https://picsum.photos/200/300",
-    repos_url: "https://api.github.com/users/maikbrito/repos"
-}
+        name: "Olivia Zars",
+        avatar: "https://picsum.photos/200/300",
+        city: "Rio de Janeiro"
+    }
 
 function addUser(newUser) {
     fetch(url, {
@@ -44,9 +45,10 @@ function addUser(newUser) {
 // addUser(newUser);
 
 const updateUser = {
-    avatar_url: "https://picsum.photos/200/300",
-    repos_url: "https://api.github.com/users/void/repos"
-}
+        name: "Olivia",
+        avatar: "https://picsum.photos/200/300",
+        city: "Quixadá"
+    }
 
 function updateUser(updateUser, id) {
     fetch(`${url}/${id}`, {
