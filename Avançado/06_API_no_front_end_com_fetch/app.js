@@ -41,4 +41,38 @@ function addUser(newUser) {
         .catch(error => console.error(error));
 }
 
-addUser(newUser);
+// addUser(newUser);
+
+const updateUser = {
+    avatar_url: "https://picsum.photos/200/300",
+    repos_url: "https://api.github.com/users/void/repos"
+}
+
+function updateUser(updateUser, id) {
+    fetch(`${url}/${id}`, {
+        method: 'PUT',
+        body: JSON.stringify(updateUser),
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8'
+        }
+    })
+        .then(response => response.json())
+        .then(data => apiAlert.textContent = data)
+        .catch(error => console.log(error));
+}
+
+// updateUser(updateUser, 1);
+
+function deleteUser(id) {
+    fetch(`${url}/${id}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8'
+        }
+    })
+        .then(response => response.json())
+        .then(data => apiAlert.textContent = data)
+        .catch(error => console.error(error));
+}
+
+// deleteUser(1)
