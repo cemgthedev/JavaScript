@@ -15,8 +15,8 @@ function getUser(id) {
         .then(response => response.json())
         .then(data => {
             userAvatar.src = data.avatar;
-            userName = data.name;
-            userCity = data.city;
+            userName.textContent = data.name;
+            userCity.textContent = data.city;
         })
         .catch(error => console.error(error));
 }
