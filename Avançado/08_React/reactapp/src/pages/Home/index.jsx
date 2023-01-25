@@ -31,17 +31,22 @@ export function Home() {
   * Obs: sempre executa uma vez (no carregamento da página)
   */
   useEffect(() => {
-      fetch('https://api.github.com/users/cemgthedev')
-          .then(response => response.json())
-          .then(data => {
-            setUser(
-              {
-                name: data.name,
-                avatar: data.avatar_url
-              }
-            );
-          })
-          .catch(error => console.error(error));
+    async function fetchData() {
+      try {
+        const response = await fetch('https://api.github.com/users/cemgthedev');
+        const data = await response.json();
+        setUser(
+          {
+            name: data.name,
+            avatar: data.avatar_url
+          }
+        );
+      } catch(error) {
+        console.error(error);
+      }
+    }
+    
+    fetchData();
   }, [persons]);
 
   return (
