@@ -7,6 +7,7 @@ export function Home() {
   const [id, setId] = useState(0);
   const [personName, setPersonName] = useState('');
   const [persons, setPersons] = useState([]);
+  const [user, setUser] = useState({name: 'Nome do Usuário', avatar: 'https://picsum.photos/200'});
 
   function handleAddPerson() {
     const newPerson = {
@@ -30,7 +31,17 @@ export function Home() {
   * Obs: sempre executa uma vez (no carregamento da página)
   */
   useEffect(() => {
-      console.log('useEffect foi chamado');
+      fetch('https://api.github.com/users/cemgthedev')
+          .then(response => response.json())
+          .then(data => {
+            setUser(
+              {
+                name: data.name,
+                avatar: data.avatar_url
+              }
+            );
+          })
+          .catch(error => console.error(error));
   }, [persons]);
 
   return (
@@ -42,8 +53,8 @@ export function Home() {
         <div className="flex items-center justify-between w-[50vw] p-2 rounded-md ring-2 ring-violet-700">
           <h1 className="font-sans text-3xl text-center">Estudo de React</h1>
           <div className="flex gap-2 items-center">
-          <h1 className="font-sans text-lg text-center">Carlos Eduardo de Moura Gomes</h1>
-          <img className="w-16 h-16 rounded-[100%]" src="https://github.com/cemgthedev.png" alt="" />
+          <h1 className="font-sans text-lg text-center">{ user.name }</h1>
+          <img className="w-16 h-16 rounded-[100%]" src={ user.avatar }/>
           </div>
         </div>
         <h2 className="font-sans w-fit h-8 text-2xl text-center border-b-violet-700 border-b-2">{personName}</h2>
