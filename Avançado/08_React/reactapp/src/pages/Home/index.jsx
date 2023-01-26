@@ -72,6 +72,7 @@ export function Home() {
         <button
           className="w-[50vw] rounded-md ring-1 ring-fuchsia-600 h-10 bg-fuchsia-600 text-white font-bold hover:ring-fuchsia-500 hover:bg-fuchsia-500"
           type='button'
+          onKeyDownC
           onClick={handleAddPerson}
         >
           Adicionar
